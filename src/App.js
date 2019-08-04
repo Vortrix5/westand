@@ -7,6 +7,11 @@ import Home from "./Components/Home";
 import SignUp from "./Components/Auth/SignUp/SignUp";
 import Login from "./Components/Auth/Login/Login";
 import {connect} from 'react-redux'
+import CourseCard from "./Components/Courses/CourseCard";
+import Courses from "./Components/Courses/Courses";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import About from "./Components/About";
+import Kids from "./Components/Kids/Kids";
 
 
 
@@ -41,12 +46,22 @@ import {connect} from 'react-redux'
         <div>
           <PrivateRoute
             exact
-            path="/"
-            component={Home}
+            path="/dash"
+            component={Dashboard}
             authenticated={authenticated}
           />
-          <Route exact path="/register" component={SignUp} />
-          <Route exact path="/login" component={Login} />
+          <Route  path="/register" component={SignUp} />
+          <Route  path="/login" component={Login} />
+          <Route  path="/courses" component={Courses}/>
+          <Route  path="/kids" component={Kids}/>
+          <Route
+            exact
+            path="/"
+            component={Home}/>
+            <Route
+            exact
+            path="/about"
+            component={About}/>
 
 
         </div>
