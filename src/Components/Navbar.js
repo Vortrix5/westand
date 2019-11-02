@@ -10,7 +10,7 @@ import {Link} from "react-router-dom"
   handleLogout = () => {
     config.auth().signOut().then(function() {
   }, function(error) {
-    this.setState({auth:true})
+    this.setState({auth:false})
   })};  
   render() {
     const { activeItem, auth} = this.state
@@ -26,12 +26,7 @@ import {Link} from "react-router-dom"
           active={activeItem === 'home'}
           onClick={this.handleItemClick}
           
-        ></Menu.Item>        <Menu.Item
-          name='About us'
-          active={activeItem === 'About us'}
-          onClick={this.handleItemClick}
-          
-        ><Link to="/about">About us</Link></Menu.Item>
+        ></Menu.Item>
         <Menu.Item
           name='Courses'
           active={activeItem === 'Courses'}

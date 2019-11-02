@@ -19,9 +19,64 @@ import Icon from '@material-ui/core/Icon';
 import chat from "../images/dash/chat.png"
 import campain from "../images/dash/compains.png"
 import {connect} from "react-redux"
+import { Calendar, Badge } from 'antd';
+import Chat from './components/Chat';
 
 
+function getListData(value) {
+  let listData;
+  switch (value.date()) {
+    case 8:
+      listData = [
+        { type: 'warning', content: 'Cleaning Bardo' },
+        { type: 'success', content: 'National Water Cleaning' },
+      ];
+      break;
+    case 10:
+      listData = [
+        { type: 'warning', content: 'Save your electrity day!' },
+        { type: 'success', content: 'This is usual meeting.' },
+      ];
+      break;
+    case 15:
+      listData = [
+        { type: 'warning', content: 'Trying to understand how economy works' },
+        { type: 'success', content: 'Planting 20 million trees!' },
+      ];
+      break;
+    default:
+  }
+  return listData || [];
+}
 
+function dateCellRender(value) {
+  const listData = getListData(value);
+  return (
+    <ul className="events">
+      {listData.map(item => (
+        <li key={item.content}>
+          <Badge status={item.type} text={item.content} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function getMonthData(value) {
+  if (value.month() === 8) {
+    return 1394;
+  }
+}
+
+function monthCellRender(value) {
+  const num = getMonthData(value);
+  return num ? (
+    <div className="notes-month">
+      <section>{num}</section>
+      <span>Backlog number</span>
+    </div>
+  ) : null;
+}
 const useStyles = makeStyles(theme => ({
   root: {
     width: '20%',
@@ -46,28 +101,31 @@ const useStyles = makeStyles(theme => ({
     width: 80,
     height: 80,
   },
+  
 }));
-let img = chat
 
 function Sidebar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [chat, setChat] = React.useState(true);
 
   function handleClick() {
   }
   function handleCamp() {
       props.dispatch({type:"CAMP_CHANGE"})
+      setChat(false);
       setOpen(!open);
 
   }
   function handleChat() {
-    props.dispatch({type:"CHAT_CHANGE"})
+    setChat(true);
 }
+console.log(chat)
 
   return (
 
     <>
-     <div width="51%">
+     <div width="51%" style={{display:"flex"}}>
          
          
     <List
@@ -117,7 +175,13 @@ function Sidebar(props) {
         </List>
       </Collapse>
     </List>
-    <img src={props.img} style={{display:"inline-block", float:"right"}} width="78%" alt="no"/>
+    <div style={{width:"100%",display:chat?"flex":"none",justifyContent:"center"}}>
+      <Chat style={{width:"1000px"}}/>
+
+    </div>
+    <div style={{width:"100%",display:(!chat)?"flex":"none",justifyContent:"center"}}>
+      <Calendar src={props.img} style={{width:1384}} width="78%" alt="no" dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+    </div> 
     </div>
     
     </>

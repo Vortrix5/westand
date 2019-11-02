@@ -12,6 +12,7 @@ import Courses from "./Components/Courses/Courses";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import About from "./Components/About";
 import Kids from "./Components/Kids/Kids";
+import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 
 
 
@@ -38,7 +39,9 @@ import Kids from "./Components/Kids/Kids";
     const { authenticated, loading } = this.state;
 
     if (loading) {
-      return <p>Loading..</p>;
+      return <Dimmer active>
+      <Loader size='massive'>Loading</Loader>
+    </Dimmer>;
     }
 
     return (

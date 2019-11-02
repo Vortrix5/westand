@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import {connect} from "react-redux"
-import { Progress } from 'semantic-ui-react'
+import { Progress } from 'antd';
 
 
 
@@ -15,7 +15,7 @@ const CourseModal = (props) => (
       <Modal.Description>
         <Header style={{color:props.chose.color}}>{props.chose.title}</Header>
         <p>{props.chose.desc}</p>
-        <Progress color="green" progress percent={props.chose.progress} size='small'>
+        <Progress percent={props.chose.progress}>
     </Progress>
       </Modal.Description>
     </Modal.Content>
