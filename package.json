@@ -18,7 +18,7 @@
     "@material-ui/pickers": "^3.1.2",
     "@material-ui/styles": "^4.2.0",
     "antd": "^3.24.3",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "axios-mock-adapter": "^1.17.0",
     "babel-eslint": "https://registry.npmjs.org/babel-eslint/-/babel-eslint-10.0.3.tgz",
     "babel-jest": "https://registry.npmjs.org/babel-jest/-/babel-jest-24.9.0.tgz",
