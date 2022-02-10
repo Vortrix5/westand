@@ -39,7 +39,7 @@
     "lodash": "^4.17.15",
     "mdbreact": "^4.22.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "npm": "^6.12.1",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.1",
