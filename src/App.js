@@ -12,7 +12,7 @@ import Courses from "./Components/Courses/Courses";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import About from "./Components/About";
 import Kids from "./Components/Kids/Kids";
-import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
+import { Dimmer, Loader} from 'semantic-ui-react'
 
 
 
