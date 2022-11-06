@@ -12,14 +12,15 @@ import Courses from "./Components/Courses/Courses";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import About from "./Components/About";
 import Kids from "./Components/Kids/Kids";
-import { Dimmer, Loader} from 'semantic-ui-react'
+import { Dimmer, Loader} from 'semantic-ui-react';
+import {onAuthStateChanged, getAuth} from "firebase/auth";
 
 
-
+const auth=getAuth();
  class App extends React.Component {
   state = { loading: true, authenticated: false, user: null };
   componentWillMount() {
-    config.auth().onAuthStateChanged(user => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         this.setState({
           authenticated: true,

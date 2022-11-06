@@ -1,5 +1,5 @@
-import firebase from "firebase";
-const config = firebase.initializeApp({
+import { initializeApp } from "firebase/app";
+const config = initializeApp({
     apiKey: "AIzaSyA5ohbjSCMb_qdx_KekG80dPjk7-AzGtLs",
     authDomain: "ddsa-6bcb3.firebaseapp.com",
     databaseURL: "https://ddsa-6bcb3.firebaseio.com",
